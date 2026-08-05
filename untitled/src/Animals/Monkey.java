@@ -1,4 +1,6 @@
-public class Monkey extends Animal{
+package Animals;
+
+public class Monkey extends Animal {
     private int intelligence;
 
     public Monkey(String name, int age, int intelligence){

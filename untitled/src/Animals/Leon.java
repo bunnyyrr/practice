@@ -1,4 +1,6 @@
-public class Leon extends Animal{
+package Animals;
+
+public class Leon extends Animal {
     private double weight;
 
     public Leon(String name, int age, double weight) {
