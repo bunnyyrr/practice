@@ -1,5 +1,5 @@
 package Animals;
 
 public interface Skill {
-    public void swim(String name);
+    void swim(String name);
 }

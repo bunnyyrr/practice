@@ -3,10 +3,12 @@ package Animals;
 abstract class Animal {
     private String name;
     private int age;
+    private static int count = 0;
 
     public Animal(String name, int age){
-        this.name = name;
-        this.age = age;
+        setName(name);
+        setAge(age);
+        count++;
     }
 
     public String getName() {
@@ -16,12 +18,16 @@ abstract class Animal {
         return age;
     }
 
+    public static int getCount() {
+        return count;
+    }
+
     public void setName(String name) {
         if(name== null || name.isEmpty()) throw new IllegalArgumentException("Имя не может быть null или пустым");
         else this.name = name;
     }
     public void setAge(int age) {
-        if(age>0) this.age = age;
+        if(age>=0) this.age = age;
         else throw new IllegalArgumentException("Возраст не может быть отрицательным");
     }
 
