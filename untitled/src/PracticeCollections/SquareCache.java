@@ -1,4 +1,4 @@
-package PracticeException;
+package PracticeCollections;
 
 import java.util.HashMap;
 import java.util.Map;
