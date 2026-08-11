@@ -47,6 +47,37 @@ SELECT c.full_name AS name, o.id
 FROM customers c
          LEFT JOIN orders o ON c.id=o.customer_id;
 
-SELECT p.name, o.id AS order
+SELECT p.name, o.id AS order_name
 FROM products p
-    FULL JOIN orders o ON p.id = o.product_id;
+         FULL JOIN orders o ON p.id = o.product_id;
+
+INSERT INTO orders (customer_id, amount) VALUES
+                                             (1, 350),
+                                             (1, 200),
+                                             (2, 500),
+                                             (2, 150),
+                                             (2, 100);
+
+SELECT c.full_name AS name, COALESCE(SUM(amount), 0)
+FROM customers c
+         LEFT JOIN orders o ON customer_id = c.id
+GROUP BY c.id;
+
+SELECT full_name, SUM(amount)
+FROM customers c
+         LEFT JOIN orders o ON customer_id = c.id
+GROUP BY c.id
+HAVING SUM(amount)>300;;
+
+ALTER TABLE customers ADD COLUMN phone VARCHAR(15) UNIQUE;
+
+UPDATE customers
+SET phone = '+79001234567'
+WHERE id =1;
+
+UPDATE customers
+SET phone = '+79007654321'
+WHERE id =3;
+
+SELECT full_name, COALESCE(phone, 'не указан')
+FROM customers;
